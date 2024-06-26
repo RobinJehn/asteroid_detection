@@ -1,15 +1,16 @@
 from tqdm import tqdm
-from db import (
+from .utils import download_mover_data
+from .config import (
+    COA_IMAGE_FOLDER,
+    BASE,
+)
+from db.db import (
     create_mover_table,
     connect_to_db,
     create_centered_image_table,
     create_not_found_table,
 )
-from utils import download_mover_data
-from config import (
-    COA_IMAGE_FOLDER,
-    BASE,
-)
+
 
 TOTAL_MOVERS = 600_000
 bad_request_output = "<p>\n nice try.\n <br/>\n logged.\n <br/>\n bye.\n</p>\n"

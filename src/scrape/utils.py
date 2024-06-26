@@ -8,7 +8,7 @@ from typing import List, Tuple
 from mysql.connector.cursor import MySQLCursorAbstract
 from mysql.connector.connection import MySQLConnection
 
-from db import insert_into_table, create_image_metadata_table, create_position_table
+from db.db import insert_into_table, create_image_metadata_table, create_position_table
 
 
 def extract_sohas_designation_tag(soup: BeautifulSoup) -> Tuple[str, str]:
@@ -60,7 +60,7 @@ def download_images(
     output_dir: str,
     cursor: MySQLCursorAbstract,
     sohas_designation: str,
-    sleep: int = 1,
+    sleep: float = 1,
 ) -> None:
     """
     Download the images and save the information to the database
@@ -70,7 +70,7 @@ def download_images(
         base (str): The base url
         output_dir (str): The directory to save the images
         cursor (MySQLCursorAbstract): The cursor to the database
-        sleep (int, optional): Time to sleep between downloads. Defaults to 1.
+        sleep (float, optional): Time to sleep between downloads. Defaults to 1.
     """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)

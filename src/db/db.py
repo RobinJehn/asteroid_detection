@@ -3,7 +3,7 @@ from typing import List
 from mysql.connector.cursor import MySQLCursorAbstract
 from mysql.connector.connection import MySQLConnection
 
-from config import DB_NAME, DB_HOST, DB_USER, DB_PASSWORD
+from .config import DB_NAME, DB_HOST, DB_USER, DB_PASSWORD
 
 
 def create_db(
@@ -164,6 +164,7 @@ if __name__ == "__main__":
 # meta data ...
 
 # Centered Image table
-# sohas_designation VARCHAR(255) PRIMARY KEY, e.g. TO18060
+# sohas_designation VARCHAR(255) PRIMARY KEY, e.g. TO18060. Problem: This is not unique, e.g. mover 9 and 22 both have OGS0045. 
+# -> Should be changed to mover_id
 # image_url VARCHAR(255), e.g. https://totas.cosmos.esa.int/image-view.php?file=2015/11/06/028012/movers/b0301835-4.png
 # file_name VARCHAR(255), e.g. b0301835-4.png from https://totas.cosmos.esa.int/image-view.php?file=2015/11/06/028012/movers/b0301835-4.png

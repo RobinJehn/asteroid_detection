@@ -2,7 +2,7 @@ from tqdm import tqdm
 import os
 
 from utils import download_images
-from db import connect_to_db
+from db.db import connect_to_db
 from config import COA_IMAGE_FOLDER, BASE
 
 db = connect_to_db()
